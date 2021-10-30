@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
 import { useContext, useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
@@ -44,7 +43,7 @@ export default function Login() {
         />
       </div>
       <div className="flex flex-col w-2/5">
-        <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4">
+        <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
           <h1 className="flex justify-center w-full">
             <img src="/images/logo.png" alt="instargram" className="mt-2" />
           </h1>
@@ -58,6 +57,7 @@ export default function Login() {
               placeholder="Email address"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setEmailAddress(target.value)}
+              value={emailAddress}
             />
             <input
               aria-label="Enter your psaaword"
@@ -65,6 +65,7 @@ export default function Login() {
               placeholder="Password"
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2"
               onChange={({ target }) => setPassword(target.value)}
+              value={password}
             />
             <button
               disabled={isInvalid}
@@ -76,10 +77,10 @@ export default function Login() {
             </button>
           </form>
         </div>
-        <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary">
+        <div className="flex justify-center items-center flex-col w-full bg-white p-4 rounded border border-gray-primary">
           <p className="text-sm">
-            Have an account?{` `}
-            <Link to="/signup" className="font-bold text-blue-medium">
+            Don't have an account?{` `}
+            <Link to={ROUTES.SIGN_UP} className="font-bold text-blue-medium">
               Sign up
             </Link>
           </p>
